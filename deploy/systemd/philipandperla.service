@@ -1,0 +1,15 @@
+[Unit]
+Description=Philip and Perla Flask App
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=__APP_ROOT__
+Environment="PATH=__APP_ROOT__/.venv/bin"
+ExecStart=__APP_ROOT__/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:__PORT__ wsgi:app
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
