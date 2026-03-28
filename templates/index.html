@@ -4,18 +4,128 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Philip and Perla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
 </head>
 <body>
-  <main class="container">
-    <section class="hero">
-      <p class="eyebrow">Coming soon</p>
-      <h1>Philip and Perla</h1>
-      <p class="lead">A simple starter website package ready for your domain.</p>
-      <div class="card">
-        <p>Update this page with your own story, event details, photos, registry links, travel notes, or anything else you want to publish.</p>
+  <main class="page-shell">
+    <section class="invite-app" aria-label="Wedding invitation">
+      <div class="tab-controls" role="tablist" aria-label="Invitation views">
+        <button class="tab-button is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-closed" id="tab-closed" data-target="closed">
+          Click to open
+        </button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-open" id="tab-open" data-target="open">
+          Save the date
+        </button>
       </div>
+
+      <section class="tab-panel is-active" id="panel-closed" role="tabpanel" aria-labelledby="tab-closed" data-panel="closed">
+        <div class="scene scene-closed">
+          <div class="envelope-wrap">
+            <div class="flower flower-left" aria-hidden="true">
+              <span class="petal petal-a"></span>
+              <span class="petal petal-b"></span>
+              <span class="petal petal-c"></span>
+              <span class="petal petal-d"></span>
+              <span class="center"></span>
+            </div>
+            <div class="flower flower-right" aria-hidden="true">
+              <span class="petal petal-a"></span>
+              <span class="petal petal-b"></span>
+              <span class="petal petal-c"></span>
+              <span class="petal petal-d"></span>
+              <span class="center"></span>
+            </div>
+
+            <div class="envelope sealed-envelope" aria-label="Sealed envelope with wedding monogram">
+              <div class="wax-mark">P&amp;P</div>
+              <div class="envelope-flap"></div>
+              <div class="envelope-face"></div>
+            </div>
+          </div>
+
+          <div class="caption-block">
+            <p class="cue">Tap the tab above to open the invitation</p>
+            <h2>Philip &amp; Perla</h2>
+            <p class="location">Fremont, CA</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-open" role="tabpanel" aria-labelledby="tab-open" data-panel="open" hidden>
+        <div class="scene scene-open">
+          <div class="envelope-wrap">
+            <div class="flower flower-left" aria-hidden="true">
+              <span class="petal petal-a"></span>
+              <span class="petal petal-b"></span>
+              <span class="petal petal-c"></span>
+              <span class="petal petal-d"></span>
+              <span class="center"></span>
+            </div>
+            <div class="flower flower-right" aria-hidden="true">
+              <span class="petal petal-a"></span>
+              <span class="petal petal-b"></span>
+              <span class="petal petal-c"></span>
+              <span class="petal petal-d"></span>
+              <span class="center"></span>
+            </div>
+
+            <div class="pullout pullout-left photo-card" aria-label="Bride portrait placeholder card">
+              <span class="photo-label">Bride</span>
+              <strong>Perla</strong>
+            </div>
+
+            <div class="pullout pullout-right photo-card" aria-label="Groom portrait placeholder card">
+              <span class="photo-label">Groom</span>
+              <strong>Philip</strong>
+            </div>
+
+            <div class="pullout ticket-card" aria-label="Save the date card">
+              <span class="ticket-top">Save the date</span>
+              <strong class="ticket-date">05.16.26</strong>
+              <span class="ticket-bottom">We&rsquo;re getting married</span>
+            </div>
+
+            <div class="envelope open-envelope" aria-label="Open envelope with wedding monogram">
+              <div class="wax-mark">P&amp;P</div>
+              <div class="envelope-liner"></div>
+              <div class="envelope-pocket"></div>
+            </div>
+          </div>
+
+          <div class="caption-block">
+            <p class="cue">Save the date</p>
+            <h2>Philip &amp; Perla</h2>
+            <p class="location">Fremont, CA</p>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab-button");
+    const panels = document.querySelectorAll(".tab-panel");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.target;
+
+        tabs.forEach((button) => {
+          const isActive = button === tab;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-selected", String(isActive));
+        });
+
+        panels.forEach((panel) => {
+          const isActive = panel.dataset.panel === target;
+          panel.classList.toggle("is-active", isActive);
+          panel.hidden = !isActive;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
