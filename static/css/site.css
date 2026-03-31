@@ -1,7 +1,7 @@
 :root {
-  --teal: #2d7f79;
-  --teal-deep: #174f4b;
-  --teal-soft: #d8eee8;
+  --teal: #b8b37e;
+  --teal-deep: #6a6538;
+  --teal-soft: #d8d4a8;
   --paper: #f8efe3;
   --paper-deep: #ebd8c3;
   --paper-shadow: #d1b89f;
@@ -25,8 +25,8 @@ body {
   color: var(--ink);
   font-family: "Manrope", sans-serif;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.15), transparent 32%),
-    linear-gradient(180deg, #4a9a92 0%, var(--teal) 38%, #256760 100%);
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.16), transparent 34%),
+    linear-gradient(180deg, #c8c391 0%, var(--teal) 40%, #a59f69 100%);
 }
 
 button,
@@ -163,7 +163,11 @@ select {
   position: absolute;
   inset: auto 0 0;
   height: var(--envelope-body-height);
-  background: linear-gradient(180deg, var(--paper) 0%, #edd7bf 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), transparent 45%),
+    repeating-linear-gradient(135deg, rgba(116, 87, 57, 0.055) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(45deg, rgba(255, 248, 239, 0.45) 0 1px, transparent 1px 5px),
+    linear-gradient(180deg, var(--paper) 0%, #edd7bf 100%);
   border-radius: 0 0 1.5rem 1.5rem;
   box-shadow: 0 20px 40px rgba(24, 64, 59, 0.25);
   z-index: 2;
@@ -178,7 +182,9 @@ select {
   bottom: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(180deg, #f4e7d7 0%, var(--paper-deep) 100%);
+  background:
+    repeating-linear-gradient(135deg, rgba(124, 93, 59, 0.04) 0 2px, transparent 2px 6px),
+    linear-gradient(180deg, #f4e7d7 0%, var(--paper-deep) 100%);
 }
 
 .sealed-envelope .envelope-face::before,
@@ -200,7 +206,10 @@ select {
   left: 0;
   right: 0;
   height: 56%;
-  background: linear-gradient(180deg, #f7e9d9 0%, #e6ccb0 100%);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.25), transparent 52%),
+    repeating-linear-gradient(135deg, rgba(130, 100, 64, 0.05) 0 2px, transparent 2px 6px),
+    linear-gradient(180deg, #f7e9d9 0%, #e6ccb0 100%);
   clip-path: polygon(0 0, 100% 0, 50% 98%);
   border-radius: 1.35rem 1.35rem 0 0;
   z-index: 1;
@@ -260,6 +269,228 @@ select {
 
 .flower-right {
   right: -0.75rem;
+}
+
+.fall-spray {
+  position: absolute;
+  top: 4.25rem;
+  width: 8.5rem;
+  height: 12rem;
+  z-index: 1;
+  filter: drop-shadow(0 12px 16px rgba(71, 39, 18, 0.18));
+}
+
+.fall-spray-left {
+  left: 4.25rem;
+  transform: rotate(-16deg);
+}
+
+.fall-spray-right {
+  right: 4.25rem;
+  transform: scaleX(-1) rotate(-16deg);
+}
+
+.fall-bloom {
+  position: absolute;
+  width: 8rem;
+  height: 12rem;
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 12px rgba(74, 38, 17, 0.16));
+}
+
+.fall-bloom-left {
+  left: -0.2rem;
+  top: 1.15rem;
+  transform: rotate(-28deg);
+}
+
+.fall-bloom-right {
+  right: -0.2rem;
+  top: 1.25rem;
+  transform: scaleX(-1) rotate(-28deg);
+}
+
+.bloom-stem {
+  position: absolute;
+  left: 3.6rem;
+  bottom: 0.4rem;
+  width: 2px;
+  height: 8.6rem;
+  background: linear-gradient(180deg, #6d8239 0%, #52652c 100%);
+  transform: rotate(10deg);
+  transform-origin: bottom center;
+}
+
+.bloom-flower {
+  position: absolute;
+  display: block;
+}
+
+.bloom-main {
+  left: 1.1rem;
+  top: 0.9rem;
+  width: 4.4rem;
+  height: 4.4rem;
+}
+
+.bloom-small {
+  left: 3.7rem;
+  top: 3.9rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.bloom-petal,
+.bloom-center {
+  position: absolute;
+  display: block;
+}
+
+.bloom-petal {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 65% 35% 65% 35%;
+  background: radial-gradient(circle at 40% 35%, #ffd8ba 0%, #d88039 55%, #9d471b 100%);
+}
+
+.bloom-main .petal-1,
+.bloom-main .petal-3 {
+  left: 1.2rem;
+}
+
+.bloom-main .petal-1 {
+  top: 0;
+}
+
+.bloom-main .petal-2 {
+  right: 0;
+  top: 1.2rem;
+  transform: rotate(92deg);
+}
+
+.bloom-main .petal-3 {
+  bottom: 0;
+  transform: rotate(182deg);
+}
+
+.bloom-main .petal-4 {
+  left: 0;
+  top: 1.2rem;
+  transform: rotate(272deg);
+}
+
+.bloom-small .bloom-petal {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.bloom-small .petal-1,
+.bloom-small .petal-3 {
+  left: 0.82rem;
+}
+
+.bloom-small .petal-1 {
+  top: 0;
+}
+
+.bloom-small .petal-2 {
+  right: 0;
+  top: 0.82rem;
+  transform: rotate(92deg);
+}
+
+.bloom-small .petal-3 {
+  bottom: 0;
+  transform: rotate(182deg);
+}
+
+.bloom-small .petal-4 {
+  left: 0;
+  top: 0.82rem;
+  transform: rotate(272deg);
+}
+
+.bloom-center {
+  left: 50%;
+  top: 50%;
+  width: 0.95rem;
+  height: 0.95rem;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #f5dea1 0%, #c48734 100%);
+}
+
+.bloom-small .bloom-center {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+.spray-stem {
+  position: absolute;
+  left: 3.7rem;
+  bottom: 0;
+  width: 2px;
+  height: 9.5rem;
+  background: linear-gradient(180deg, #5b6c31 0%, #748b43 100%);
+  transform: rotate(10deg);
+  transform-origin: bottom center;
+}
+
+.fall-leaf,
+.berry {
+  position: absolute;
+  display: block;
+}
+
+.fall-leaf {
+  width: 3.1rem;
+  height: 4.1rem;
+  clip-path: polygon(50% 0, 68% 16%, 100% 22%, 78% 46%, 88% 76%, 50% 100%, 12% 76%, 22% 46%, 0 22%, 32% 16%);
+  opacity: 0.96;
+}
+
+.leaf-maple {
+  left: 0.8rem;
+  bottom: 3.2rem;
+  background: linear-gradient(180deg, #bf5b27 0%, #8e3114 100%);
+  transform: rotate(-22deg);
+}
+
+.leaf-ochre {
+  left: 2.8rem;
+  bottom: 5.2rem;
+  background: linear-gradient(180deg, #d9a33c 0%, #b26b24 100%);
+  transform: rotate(12deg) scale(0.92);
+}
+
+.leaf-russet {
+  left: 3.7rem;
+  bottom: 7.5rem;
+  background: linear-gradient(180deg, #8f3a22 0%, #5d2316 100%);
+  transform: rotate(30deg) scale(0.84);
+}
+
+.berry {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, #efc4b1 0%, #b94934 48%, #7a221a 100%);
+}
+
+.berry-a {
+  left: 5.6rem;
+  bottom: 4.8rem;
+}
+
+.berry-b {
+  left: 4.95rem;
+  bottom: 4.05rem;
+}
+
+.berry-c {
+  left: 5.7rem;
+  bottom: 3.35rem;
 }
 
 .petal,
@@ -359,13 +590,18 @@ select {
   font-weight: 600;
 }
 
+.groom-card {
+  align-items: flex-end;
+  text-align: right;
+}
+
 .pullout-left {
-  left: 3rem;
+  left: 0.9rem;
   transform: translateY(-2.8rem) rotate(-8deg);
 }
 
 .pullout-right {
-  right: 3rem;
+  right: 0.9rem;
   transform: translateY(-1.65rem) rotate(8deg);
 }
 
@@ -376,12 +612,17 @@ select {
   min-height: 13rem;
   transform: translateX(-50%) rotate(-1deg);
   background:
+    repeating-linear-gradient(135deg, rgba(152, 117, 78, 0.045) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.34) 0 1px, transparent 1px 5px),
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.45), transparent 36%),
     linear-gradient(180deg, #fffaf3 0%, #f0dfcc 100%);
   color: var(--teal-deep);
   padding: 1.35rem 1.5rem 1.2rem;
   text-align: center;
   z-index: 3;
+  box-shadow:
+    inset 0 0 0 1px rgba(175, 141, 106, 0.35),
+    0 18px 34px rgba(14, 43, 40, 0.22);
 }
 
 .ticket-card::before,
@@ -401,6 +642,12 @@ select {
 
 .ticket-card::after {
   right: -0.4rem;
+}
+
+.ticket-card .ticket-top,
+.ticket-card .ticket-bottom,
+.ticket-card .ticket-date {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 
 .ticket-date {
@@ -453,6 +700,22 @@ select {
 
 .scene-open .ticket-card {
   animation: riseCenter 900ms ease both;
+}
+
+.scene-open .fall-spray-left {
+  animation: bloomLeft 900ms ease 110ms both;
+}
+
+.scene-open .fall-spray-right {
+  animation: bloomRight 900ms ease 180ms both;
+}
+
+.scene-open .fall-bloom-left {
+  animation: flowerLeft 900ms ease 150ms both;
+}
+
+.scene-open .fall-bloom-right {
+  animation: flowerRight 900ms ease 230ms both;
 }
 
 @keyframes panelFade {
@@ -525,6 +788,54 @@ select {
   }
 }
 
+@keyframes bloomLeft {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) rotate(-24deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-16deg);
+  }
+}
+
+@keyframes bloomRight {
+  from {
+    opacity: 0;
+    transform: scaleX(-1) translateY(1.5rem) rotate(-24deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(-1) translateY(0) rotate(-16deg);
+  }
+}
+
+@keyframes flowerLeft {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) rotate(-34deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-28deg);
+  }
+}
+
+@keyframes flowerRight {
+  from {
+    opacity: 0;
+    transform: scaleX(-1) translateY(1.5rem) rotate(-34deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(-1) translateY(0) rotate(-28deg);
+  }
+}
+
 @media (max-width: 840px) {
   .envelope-wrap {
     min-height: 29rem;
@@ -537,12 +848,41 @@ select {
     bottom: 2.8rem;
   }
 
+  .fall-spray {
+    width: 7rem;
+    height: 10rem;
+    top: 5rem;
+  }
+
+  .fall-spray-left {
+    left: 2.5rem;
+  }
+
+  .fall-spray-right {
+    right: 2.5rem;
+  }
+
+  .fall-bloom {
+    width: 6.6rem;
+    height: 10rem;
+  }
+
+  .fall-bloom-left {
+    left: -0.55rem;
+    top: 2.35rem;
+  }
+
+  .fall-bloom-right {
+    right: -0.55rem;
+    top: 2.45rem;
+  }
+
   .pullout-left {
-    left: 1.2rem;
+    left: -0.15rem;
   }
 
   .pullout-right {
-    right: 1.2rem;
+    right: -0.15rem;
   }
 }
 
@@ -592,6 +932,139 @@ select {
     width: 4.4rem;
     height: 4.4rem;
     bottom: 2rem;
+  }
+
+  .fall-spray {
+    width: 4.6rem;
+    height: 7rem;
+    top: 6rem;
+  }
+
+  .fall-spray-left {
+    left: 1.6rem;
+  }
+
+  .fall-spray-right {
+    right: 1.6rem;
+  }
+
+  .fall-bloom {
+    width: 4rem;
+    height: 6.4rem;
+  }
+
+  .fall-bloom-left {
+    left: -0.1rem;
+    top: 4.35rem;
+  }
+
+  .fall-bloom-right {
+    right: -0.1rem;
+    top: 4.4rem;
+  }
+
+  .bloom-stem {
+    left: 1.8rem;
+    height: 4.6rem;
+  }
+
+  .bloom-main {
+    left: 0.55rem;
+    top: 0.65rem;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .bloom-small {
+    left: 2rem;
+    top: 2.6rem;
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .bloom-petal {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .bloom-main .petal-1,
+  .bloom-main .petal-3 {
+    left: 0.72rem;
+  }
+
+  .bloom-main .petal-2,
+  .bloom-main .petal-4 {
+    top: 0.72rem;
+  }
+
+  .bloom-small .bloom-petal {
+    width: 0.86rem;
+    height: 0.86rem;
+  }
+
+  .bloom-small .petal-1,
+  .bloom-small .petal-3 {
+    left: 0.52rem;
+  }
+
+  .bloom-small .petal-2,
+  .bloom-small .petal-4 {
+    top: 0.52rem;
+  }
+
+  .bloom-center {
+    width: 0.55rem;
+    height: 0.55rem;
+  }
+
+  .bloom-small .bloom-center {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+
+  .spray-stem {
+    left: 2rem;
+    height: 5.6rem;
+  }
+
+  .fall-leaf {
+    width: 1.9rem;
+    height: 2.5rem;
+  }
+
+  .leaf-maple {
+    left: 0.35rem;
+    bottom: 1.8rem;
+  }
+
+  .leaf-ochre {
+    left: 1.5rem;
+    bottom: 3rem;
+  }
+
+  .leaf-russet {
+    left: 2rem;
+    bottom: 4.4rem;
+  }
+
+  .berry {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .berry-a {
+    left: 3rem;
+    bottom: 2.9rem;
+  }
+
+  .berry-b {
+    left: 2.55rem;
+    bottom: 2.35rem;
+  }
+
+  .berry-c {
+    left: 3rem;
+    bottom: 1.85rem;
   }
 
   .flower-left {
