@@ -40,16 +40,16 @@
             </div>
 
             <div class="envelope sealed-envelope" aria-label="Sealed envelope with wedding monogram">
-              <div class="wax-mark">P&amp;P</div>
+              <button class="wax-mark wax-trigger" type="button" aria-label="Open the invitation" data-target="open">P&amp;P</button>
               <div class="envelope-flap"></div>
               <div class="envelope-face"></div>
             </div>
           </div>
 
           <div class="caption-block">
-            <p class="cue">Tap the tab above to open the invitation</p>
+            <p class="cue">Tap the wax mark to open the invitation</p>
             <h2>Philip &amp; Perla</h2>
-            <p class="location">Fremont, CA</p>
+            <p class="location">San Mateo, CA</p>
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@
 
             <div class="pullout ticket-card" aria-label="Save the date card">
               <span class="ticket-top">Save the date</span>
-              <strong class="ticket-date">05.16.26</strong>
+              <strong class="ticket-date">11.22.2026</strong>
               <span class="ticket-bottom">We&rsquo;re getting married</span>
             </div>
 
@@ -98,7 +98,7 @@
           <div class="caption-block">
             <p class="cue">Save the date</p>
             <h2>Philip &amp; Perla</h2>
-            <p class="location">Fremont, CA</p>
+            <p class="location">San Mateo, CA</p>
           </div>
         </div>
       </section>
@@ -109,22 +109,26 @@
     const tabs = document.querySelectorAll(".tab-button");
     const panels = document.querySelectorAll(".tab-panel");
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const target = tab.dataset.target;
-
-        tabs.forEach((button) => {
-          const isActive = button === tab;
-          button.classList.toggle("is-active", isActive);
-          button.setAttribute("aria-selected", String(isActive));
-        });
-
-        panels.forEach((panel) => {
-          const isActive = panel.dataset.panel === target;
-          panel.classList.toggle("is-active", isActive);
-          panel.hidden = !isActive;
-        });
+    function activateTab(target) {
+      tabs.forEach((button) => {
+        const isActive = button.dataset.target === target;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
       });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.panel === target;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => activateTab(tab.dataset.target));
+    });
+
+    document.querySelectorAll(".wax-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => activateTab(trigger.dataset.target));
     });
   </script>
 </body>
